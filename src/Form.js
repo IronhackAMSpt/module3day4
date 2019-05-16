@@ -2,37 +2,37 @@ import React, { Component } from "react";
 
 class Form extends Component {
   state = {
-    name: "Bob",
+    name: "",
     gender: "",
     mainLanguage: "",
     isMystery: "",
     favouriteFood: ""
   };
 
-  changeName = e => {
-    this.setState({
-      name: e.target.value
-    });
-  };
+  // changeName = e => {
+  //   this.setState({
+  //     name: e.target.value
+  //   });
+  // };
 
-  changeLanguage = e => {
-    this.setState({
-      mainLanguage: e.target.value
-    });
-  };
+  // changeLanguage = e => {
+  //   this.setState({
+  //     mainLanguage: e.target.value
+  //   });
+  // };
 
-  changeIsMystery = e => {
-    console.log(e.target.checked);
-    this.setState({
-      isMystery: e.target.checked
-    });
-  };
+  // changeIsMystery = e => {
+  //   console.log(e.target.checked);
+  //   this.setState({
+  //     isMystery: e.target.checked
+  //   });
+  // };
 
-  changeGender = e => {
-    this.setState({
-      gender: e.target.value
-    });
-  };
+  // changeGender = e => {
+  //   this.setState({
+  //     gender: e.target.value
+  //   });
+  // };
 
   handleChange = e => {
     let { name, value, checked, type } = e.target;
@@ -48,7 +48,7 @@ class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
+    this.props.submithandler(this.state)
     console.log(this.state);
   };
 
@@ -59,20 +59,20 @@ class Form extends Component {
           name="name"
           type="text"
           placeholder="name"
-          value={this.state.name}
+          value={this.name}
           onChange={e => this.handleChange(e)}
         />
         <input
           name="mainLanguage"
           type="text"
           placeholder="Main language"
-          value={this.state.mainLanguage}
+          value={this.mainLanguage}
           onChange={e => this.handleChange(e)}
         />
         <input
           name="isMystery"
           type="checkbox"
-          value={this.state.isMystery}
+          value={this.isMystery}
           onChange={e => this.handleChange(e)}
         />
         <div onChange={e => this.handleChange(e)}>
@@ -96,7 +96,7 @@ class Form extends Component {
 
         <select
           name="gender"
-          value={this.state.gender}
+          value={this.gender}
           onChange={e => this.handleChange(e)}
         >
           <option value="" />
